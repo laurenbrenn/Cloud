@@ -5,6 +5,7 @@ function a() {
 }
 
 function b() {
+  return new Promise((resolve, reject) => {});
   setTimeout(() => {
     console.log('this student is taking 15 credits');
   }, 200);
