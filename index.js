@@ -1,18 +1,23 @@
 function a() {
   setTimeout(() => {
     console.log('enrolled');
-  }, 100);
+  }, 200);
 }
 
 function b() {
   return new Promise((resolve, reject) => {});
   setTimeout(() => {
-    console.log('this student is taking 15 credits');
-  }, 200);
+    resolve('this student is taking 15 credits');
+  }, 300);
 }
 
-a();
-b();
+async function runner() {
+  const b_result = await b();
+  console.log(b_result);
+  const a_result = await a();
+  console.log(a_result);
+}
+runner();
 //a: checking enrollment -- 100ms
 
 //b: how many classes -- 200ms
